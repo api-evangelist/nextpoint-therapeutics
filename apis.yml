@@ -1,8 +1,15 @@
 aid: nextpoint-therapeutics
 name: NextPoint Therapeutics
-description: 'NextPoint Therapeutics is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: 'NextPoint Therapeutics is a clinical-stage biotechnology company based at 238 Main
+  Street in Cambridge, Massachusetts, developing precision immuno-oncology therapeutics built on its
+  scientific work on the novel B7-H7/HHLA2 checkpoint axis. Its pipeline includes a T-cell engager
+  engineered for an improved therapeutic index, an antibody-drug conjugate using proprietary linker
+  technology, and a multi-functional checkpoint inhibitor, each aimed at tumors that upregulate
+  B7-H7. The company publishes a seven-page corporate marketing site covering its science, pipeline,
+  leadership, and news; it operates no developer program, publishes no API, SDK, or machine-readable
+  specification, and is profiled here for network completeness rather than for an API surface.'
 url: https://raw.githubusercontent.com/api-evangelist/nextpoint-therapeutics/refs/heads/main/apis.yml
+image: https://nextpointtx.com/wp-content/uploads/2025/08/logo-nextpoint.png
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
@@ -12,6 +19,13 @@ created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Biotechnology
+- Pharmaceuticals
+- Oncology
+- Immunotherapy
+- Life Sciences
+- Healthcare
+- Clinical Trials
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +33,46 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/nextpoint-therapeutics-domain-security.yml
 - type: Website
+  url: https://nextpointtx.com/
+- type: PrivacyPolicy
+  url: https://nextpointtx.com/privacy-policy/
+- type: TermsOfService
+  url: https://nextpointtx.com/terms-of-use/
+- type: News
+  url: https://nextpointtx.com/news-publications/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/nextpoint-therapeutics/
+- type: Twitter
+  url: https://x.com/NextPointTX
+- type: SecondaryMarketListing
   url: https://forgeglobal.com/nextpoint-therapeutics_stock/
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    NextPoint Therapeutics is a clinical-stage drug developer whose entire web presence is a
+    seven-page WordPress marketing site with no developer program — every /openapi.json,
+    /swagger.json, /graphql, /api-docs and /.well-known/* path returns the byte-identical
+    158,191-byte catch-all homepage rather than a document, and the only machine-readable
+    surface on the host is the default WordPress /wp-json/ CMS route index, which is
+    WordPress plumbing and not a NextPoint API product.
+  evidence:
+    - url: https://nextpointtx.com/openapi.json
+      status: 200
+    - url: https://nextpointtx.com/definitely-not-a-real-path-abc123
+      status: 200
+    - url: https://nextpointtx.com/.well-known/security.txt
+      status: 404
+    - url: https://nextpointtx.com/llms.txt
+      status: 404
+    - url: https://api.github.com/orgs/nextpointtx
+      status: 404
+  checked: '2026-08-26'

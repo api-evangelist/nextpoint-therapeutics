@@ -1,0 +1,68 @@
+generated: '2026-08-26'
+method: probed
+source: direct unauthenticated HTTPS probes of every host in apis.yml (nextpointtx.com is the only host; apis[] is empty and there are no OpenAPI servers[] hosts)
+name: NextPoint Therapeutics .well-known Probe
+description: >-
+  No .well-known document is served by NextPoint Therapeutics. nextpointtx.com is a
+  WordPress site (Astra + Elementor, WP Engine) whose 404 handler is a catch-all that
+  answers HTTP 200 with the SAME 158,191-byte homepage HTML for every unmatched path.
+  A control probe of a guaranteed-nonexistent path returned that identical status, body
+  and byte count, so every 200 observed on /.well-known/* here is the catch-all page and
+  NOT a document. The only genuinely handled path is /.well-known/security.txt, which
+  returns a hard 404. NO WellKnown and NO SecurityTxt pointer is emitted for this
+  provider: nothing here is a hit.
+hit_count: 0
+soft_404_host: nextpointtx.com
+soft_404_control:
+  url: https://nextpointtx.com/definitely-not-a-real-path-abc123
+  status: 200
+  content_type: text/html; charset=UTF-8
+  bytes: 158191
+  note: >-
+    Control probe. Any HTTP 200 on nextpointtx.com whose body is 158,191 bytes and begins
+    with <!DOCTYPE html> is this catch-all page, not a served document.
+
+hosts:
+  - host: https://nextpointtx.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+
+soft_404_probes:
+  note: >-
+    Recorded separately from hosts[].documents[] on purpose. These paths returned HTTP 200,
+    but the body is byte-identical to the soft_404_control above. Promoting them into
+    documents[] would credit NextPoint Therapeutics with a discovery surface it does not
+    serve.
+  probes:
+    - path: /.well-known/openid-configuration
+      status: 200
+      bytes: 158191
+      hit: false
+      reason: catch-all HTML, byte-identical to control
+    - path: /.well-known/oauth-authorization-server
+      status: 200
+      bytes: 158191
+      hit: false
+      reason: catch-all HTML, byte-identical to control
+    - path: /.well-known/api-catalog
+      status: 200
+      bytes: 158191
+      hit: false
+      reason: catch-all HTML, byte-identical to control
+    - path: /.well-known/ai-plugin.json
+      status: 200
+      bytes: 158191
+      hit: false
+      reason: catch-all HTML, byte-identical to control
+    - path: /.well-known/agent-card.json
+      status: 200
+      bytes: 158191
+      hit: false
+      reason: catch-all HTML, byte-identical to control
+    - path: /.well-known/agent.json
+      status: 200
+      bytes: 158191
+      hit: false
+      reason: catch-all HTML, byte-identical to control
