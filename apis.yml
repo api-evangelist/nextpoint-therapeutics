@@ -99,3 +99,5 @@ x-coverage:
     - url: https://api.github.com/orgs/nextpointtx
       status: 404
   checked: '2026-08-26'
+x-parent: nextpoint
+x-relationship: product
