@@ -56,6 +56,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: About
+  url: https://nextpointtx.com/about-us/
 - type: DomainSecurity
   url: security/nextpoint-therapeutics-domain-security.yml
 - type: Website
@@ -99,5 +101,3 @@ x-coverage:
     - url: https://api.github.com/orgs/nextpointtx
       status: 404
   checked: '2026-08-26'
-x-parent: nextpoint
-x-relationship: product
